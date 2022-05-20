@@ -1,33 +1,29 @@
 import './App.css';
 import React from 'react';
+import Product from './components/Product/product';
 import {
   BrowserRouter,
   Route,
   Routes,
-  Navigate
+ 
  } from 'react-router-dom';
  import Home from './components/HomePage/home';
- 
-
+ import CartScreen from './cartscreen/cartScreen';
+ import Allproduct from './components/Product/allProduct';
+import Header from './components/Header/header';
 function App() {
   return (
     <>
         <BrowserRouter>
           <Routes>
 
-            {/* <Route path="/" element={<Navigate replace={true} to="/login"/>}/>
-            <Route  path="/dashboard" element={<Dashboard/>} />
-            <Route  path="/register" element={<TeacherRegistrar/>}/>
-            <Route  path="/login" element={<TeacherLogin/>}/>
-            <Route path= '/employees' element={<Addemployees/>}/>
-              <Route path="/employees/capture/:id/:name" element={<Capture/>} />
             
+            <Route  path="/" element={<Home/>} exact />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/all-product" element={<Allproduct/>} />
+            <Route exact path="/search" component={Header} />
 
-            <Route path="/video-feeds" element={<VideoFeeds/>}/>
-            {/* <Route  path="/video-feeds/preview/:id" element={<VideoPreview/>}/> */}
-            {/* <Route path="/attendance" element={<Attendance/>}/>  */}
-            
-            <Route  path="/" element={<Home/>} />
+            <Route path="/cart" element={<CartScreen/>} />
             </Routes>
           </BrowserRouter>
     </>
